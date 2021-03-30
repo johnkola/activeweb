@@ -5,12 +5,14 @@ pipeline {
         JAVA_TOOL_OPTIONS = "-Duser.home=/home/jenkins"
     }
     agent {
-        docker {
+      
             dockerfile {
-                label "docker"
+                filename 'Dockerfile'
+                label 'docker-node'
+                dir 'build'
                 args "-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2"
-            }
-        }
+          
+           }
     }
 
     stages {
