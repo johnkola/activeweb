@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.wj.prajumsook</groupId>
-	<artifactId>demoreactiveweb</artifactId>
+	<artifactId>activeweb</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demoreactiveweb</name>
+	<name>activeweb</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
