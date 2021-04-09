@@ -4,8 +4,7 @@ echo "Hello World!"
 
 minikube delete --all
 
-minikube config 
-minikube config 
+sudo apt-get update
 
 minikube start --driver=virtualbox
 minikube status

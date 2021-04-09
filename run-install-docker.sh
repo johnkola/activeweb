@@ -13,3 +13,6 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 sudo docker run hello-world
 
+
+
+# docker container run -d -p 8080:8080 -v /var/jenkins_home:/var/jenkins_home --name jenkins-local  jenkins/jenkins:lts

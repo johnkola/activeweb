@@ -10,8 +10,8 @@ spec:
   accessModes:
     - ReadWriteOnce
   capacity:
-    storage: 20Gi
+    storage: 6Gi
   persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: /data/jenkins-volume/
+    path: /var/jenkins_home
   volumeMode: Filesystem
