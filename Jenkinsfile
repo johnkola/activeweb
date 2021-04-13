@@ -1,15 +1,21 @@
 pipeline {
-  agent any
-  stages {
-    stage('init') {
-      steps {
-        build 'Build'
-        echo 'Strat'
-      }
+    agent any
+
+    triggers {
+        pollSCM '* * * * *'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh './gradlew assemble'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh './gradlew test'
+            }
+        }
     }
 
-  }
-  environment {
-    a = 's'
-  }
+
 }
