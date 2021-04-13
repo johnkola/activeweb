@@ -1,21 +1,16 @@
 pipeline {
-    agent any
-
-    triggers {
-        pollSCM '* * * * *'
-    }
-    stages {
-        stage('Build') {
-            steps {
-                sh './gradlew assemble'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh './gradlew test'
-            }
-        }
+  agent any
+  stages {
+    stage('') {
+      steps {
+        sh '''mvn --version
+git --version
+java -version'''
+      }
     }
 
-
+  }
+  triggers {
+    pollSCM('* * * * *')
+  }
 }
