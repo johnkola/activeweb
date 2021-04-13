@@ -5,7 +5,7 @@ pipeline {
       parallel {
         stage('Log Tool Version') {
           steps {
-            sh '''sudo apt update -p Alfred110
+            sh '''
 java -version
 
 git --version
