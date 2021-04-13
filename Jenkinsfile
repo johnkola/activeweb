@@ -10,6 +10,8 @@ java -version
 
 git --version
 
+apt install maven
+
 mvn --version
 '''
           }
