@@ -5,7 +5,8 @@ pipeline {
       parallel {
         stage('Log Tool Version') {
           steps {
-            sh '''mvn --version
+            sh '''sudo apt update
+mvn --version
 git --version
 java -version'''
           }
