@@ -6,7 +6,7 @@ node {
         stage("Compilation and Analysis") {
             parallel 'Compilation': {
                 sh "pwd"
-                sh "mvnw clean install -DskipTests"
+                sh "./mvnw clean install -DskipTests"
             }, 'Static Analysis': {
                 stage("Checkstyle") {
                     sh "pwd"
