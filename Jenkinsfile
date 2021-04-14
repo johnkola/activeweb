@@ -5,9 +5,11 @@ node {
     dir('activeweb') {
         stage("Compilation and Analysis") {
             parallel 'Compilation': {
+                sh "ls"
                 sh "./mvnw clean install -DskipTests"
             }, 'Static Analysis': {
                 stage("Checkstyle") {
+                    sh "ls"
                     sh "./mvnw checkstyle:checkstyle"
 
                     step([$class: 'CheckStylePublisher',
