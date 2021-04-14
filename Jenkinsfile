@@ -2,7 +2,7 @@ node {
     stage 'Clone the project'
     git 'https://github.com/johnkola/activeweb.git'
 
-    dir('spring-jenkins-pipeline') {
+    dir('.') {
         stage("Compilation and Analysis") {
             parallel 'Compilation': {
                 sh "./mvnw clean install -DskipTests"
