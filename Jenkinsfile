@@ -1,6 +1,6 @@
 node {
     stage 'Clone the project'
-    git 'https://github.com/johnkola/activeweb.git'
+    git branch: 'develop', url: 'https://github.com/johnkola/activeweb.git'
 
     dir('activeweb') {
         stage("Compilation and Analysis") {
