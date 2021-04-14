@@ -1,7 +1,7 @@
 node {
     stage 'Clone the project'
     git branch: 'develop', url: 'https://github.com/johnkola/activeweb.git'
-
+    sleep 30
     dir('activeweb') {
         stage("Compilation and Analysis") {
             parallel 'Compilation': {
