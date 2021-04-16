@@ -12,7 +12,7 @@ pipeline {
                 sh "java -version"
                 sh "git --version"
                 sh "mvn --version"
-                git 'https://github.com/eugenp/tutorials.git'
+                git branch: 'develop', url: 'https://github.com/johnkola/activeweb.git'
             }
         }
         
@@ -32,6 +32,31 @@ pipeline {
                         //   unHealthy: '90',
                         //   useStableBuildAsReference: true
                         // ])
+                    }
+                )
+            }
+        }
+
+        stage("Tests and Deployment") {
+            steps{
+                parallel (
+                    'Running unit tests' :{
+                        script {
+                            try{
+                                sh 'mvn test -Punit'
+                            }finally {
+                                step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*UnitTest.xml'])
+                            }
+                        }
+                    },
+                    'Running integration tests' :{
+                        script {
+                            try{
+                                sh "mvn test -Pintegration"
+                            }finally {
+                                step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*IntegrationTest.xml'])
+                            }
+                        }
                     }
                 )
             }
