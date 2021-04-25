@@ -45,7 +45,7 @@ pipeline {
                             try{
                                 sh 'mvn test -Punit'
                             }finally {
-                                step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*UnitTest.xml'])
+                                //step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*UnitTest.xml'])
                             }
                         }
                     },
@@ -54,7 +54,7 @@ pipeline {
                             try{
                                 sh "mvn test -Pintegration"
                             }finally {
-                                step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*IntegrationTest.xml'])
+                                //step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*IntegrationTest.xml'])
                             }
                         }
                     }
